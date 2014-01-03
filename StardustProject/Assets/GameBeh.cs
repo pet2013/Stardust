@@ -42,8 +42,10 @@ public class GameBeh : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (GUI.Button (new Rect (10, 10, 200, 50), "Launch"))
-			Launch (new Vector3());
+		//if (GUI.Button (new Rect (10, 10, 200, 50), "Launch"))
+		//	Launch (new Vector3());
+		if (GUI.Button (new Rect (10, Screen.height-60, 200, 50), "Back to main menu"))
+			Application.LoadLevel("MainMenu");
 
 		
 		//OnMouseDown ();
@@ -58,10 +60,9 @@ public class GameBeh : MonoBehaviour {
 		var f = r.transform.up;
 		var angle = Vector3.Angle (a,f);
 		var cross = Vector3.Cross (a,f);
-		Debug.Log (angle);
+		//Debug.Log (angle);
 		if (cross.z>0)
-						angle = -angle;
-
+			angle = -angle;
 		r.transform.Rotate (Vector3.forward, angle);
 		Rockets.Add (r);
 	}
@@ -92,20 +93,24 @@ public class GameBeh : MonoBehaviour {
 	void OnMouseDown()
 	{
 		if (Input.GetMouseButtonUp (0)) {
-						
 			RaycastHit hit;
-						Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-						if (Physics.Raycast (ray, out hit,20))
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			if (Physics.Raycast (ray, out hit,20))
 			{
+				string objectTag = hit.collider.tag;
+				string objectName = hit.collider.name;
+				Debug.Log(objectTag);
 				//Debug.Log(hit.point.x);
 				var p = ray.GetPoint(20);
 				p.z = 0;
+				//Debug.Log(hit.collider.name);
 				Debug.DrawLine (transform.position, ray.GetPoint(20), Color.cyan);
 				//Debug.Log(p);
-				Launch(hit.point);		}
-				
-						
+				if(objectTag != "SpaceObject"){
+					Launch(hit.point);
 				}
+			}
+		}
 	}
 	
 	void MovePlanets()
@@ -166,7 +171,7 @@ public class GameBeh : MonoBehaviour {
 	{
 		Rockets.Remove (g);
 		Destroy (g);
-		}
+	}
 }
 public class Game
 {

@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameBeh.cs">
+    <Files>
+      <File FileName="Assets\GameBeh.cs" Line="59" Column="16" />
+      <File FileName="Assets\OnPlanetClick.cs" Line="12" Column="18" />
+      <File FileName="Assets\OnMenuItemClick.cs" Line="12" Column="10" />
+      <File FileName="Assets\OnIngameGUIClick.cs" Line="9" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
